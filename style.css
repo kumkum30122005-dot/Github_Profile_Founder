@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bgColor: rgba(8, 8, 8, 1);
+    --secondBgColor: rgba(16, 16, 16, 1);
+    --textColor: rgba(255, 255, 255, 1);
+    --mutedTextColor: rgba(204, 204, 204, 1);
+    --mainColor: rgba(234, 88, 12, 1);
+    --gradientStart: rgba(223, 137, 9, 1);
+    --gradientEnd: rgba(255, 29, 21, 1);
+    --errorColor: rgba(239, 68, 68, 1);
+    --glowColor: rgba(234, 88, 12, 0.4);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bgColor);
+    color: var(--textColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* ===== HEADING ===== */
+.heading {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.heading span {
+    background: linear-gradient(270deg, var(--gradientStart) 10%, var(--gradientEnd) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+}
+
+/* ===== SEARCH BOX ===== */
+.searchBox {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.searchBox input {
+    flex: 1;
+    padding: 1.4rem 2rem;
+    font-size: 1.6rem;
+    color: var(--textColor);
+    background-color: var(--secondBgColor);
+    border-radius: 2rem;
+    border: 2px solid var(--mainColor);
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.searchBox input:focus {
+    box-shadow: 0 0 10px var(--glowColor);
+}
+
+.gradientBtn {
+    padding: 0 2.2rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--textColor);
+    background: linear-gradient(270deg, var(--gradientStart) 10%, var(--gradientEnd) 100%);
+    transition: 0.3s ease-in-out;
+}
+
+.gradientBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--glowColor);
+}
+
+/* ===== ERROR ===== */
+.errorMsg {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--errorColor);
+    min-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== SKELETON LOADER ===== */
+.skeleton {
+    background: var(--secondBgColor);
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.skeletonAvatar {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    animation: pulseGlow 1.4s infinite ease-in-out;
+}
+
+.skeletonLine {
+    width: 70%;
+    height: 1.4rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    animation: pulseGlow 1.4s infinite ease-in-out;
+}
+
+.skeletonLine.short {
+    width: 40%;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ===== PROFILE CARD ===== */
+.profileCard {
+    background: var(--secondBgColor);
+    border-radius: 2rem;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border: 2px solid var(--mainColor);
+    box-shadow: 0 0 15px var(--glowColor);
+    transition: 0.3s ease-in-out;
+}
+
+.avatar {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--mainColor);
+    box-shadow: 0 0 20px var(--glowColor);
+    margin-bottom: 1.5rem;
+}
+
+.fullName {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.userName {
+    font-size: 1.5rem;
+    color: var(--mainColor);
+    margin-bottom: 1rem;
+}
+
+.bio {
+    font-size: 1.4rem;
+    color: var(--mutedTextColor);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* ===== STATS ===== */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.statBox {
+    background: var(--bgColor);
+    border-radius: 1.2rem;
+    padding: 1.2rem 0.5rem;
+    border: 1px solid rgba(234, 88, 12, 0.3);
+    transition: 0.3s ease-in-out;
+}
+
+.statBox:hover {
+    border: 1px solid var(--mainColor);
+    box-shadow: 0 0 15px var(--glowColor);
+    transform: translateY(-3px);
+}
+
+.statBox i {
+    font-size: 1.8rem;
+    color: var(--mainColor);
+}
+
+.statBox h3 {
+    font-size: 1.6rem;
+    margin: 0.4rem 0 0.2rem;
+}
+
+.statBox p {
+    font-size: 1.1rem;
+    color: var(--mutedTextColor);
+}
+
+/* ===== INFO LIST ===== */
+.infoList {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.infoList p {
+    font-size: 1.4rem;
+    color: var(--mutedTextColor);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.infoList i {
+    color: var(--mainColor);
+    font-size: 1.6rem;
+}
+
+.infoList a {
+    color: var(--mutedTextColor);
+    word-break: break-all;
+}
+
+.infoList a:hover {
+    color: var(--mainColor);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--mainColor);
+    box-shadow: 0 0 20px var(--glowColor);
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--glowColor), 0 0 50px var(--glowColor);
+}
+
+/* ===== UTILITY ===== */
+.hidden {
+    display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 500px) {
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
