@@ -113,6 +113,6 @@ Open index.html in your browser
 
 ## 👨‍💻 Author
 
-**Atharv Gupta**
+**kumkum**
 
 If you found this project helpful, don't forget to ⭐ the repository!
