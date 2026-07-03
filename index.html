@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Profile Finder</title>
+    <title>GitHub User Explorer</title>
+
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1 class="heading">GitHub <span>Profile Finder</span></h1>
+    <header class="head-cont">
+        <div class="heading1">
+            <span class="github-text">GitHub</span>
+            <span class="title-text">User Explorer</span>
+        </div>
 
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Search</a>
+            <a href="#">Repositories</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <div class="container">
         <div class="searchBox">
             <input type="text" id="searchInput" placeholder="Enter GitHub username...">
             <button id="searchBtn" class="gradientBtn">
@@ -19,8 +35,8 @@
             </button>
         </div>
 
+        <div id="recentSearches" class="recentSearches"></div>
         <p id="errorMsg" class="errorMsg"></p>
-
         <div id="skeleton" class="skeleton hidden">
             <div class="skeletonAvatar"></div>
             <div class="skeletonLine"></div>
@@ -28,16 +44,21 @@
         </div>
 
         <div id="profileContainer" class="profileCard hidden">
-            <img id="avatar" src="" alt="profile picture" class="avatar">
-            <h2 id="fullName" class="fullName"></h2>
-            <p id="userName" class="userName"></p>
-            <p id="bio" class="bio"></p>
+
+            <div class="profileHeader">
+                <img id="avatar" src="" alt="Profile Picture" class="avatar">
+                <div class="profileHeaderInfo">
+                    <h2 id="fullName" class="fullName"></h2>
+                    <p id="userName" class="userName"></p>
+                    <p id="bio" class="bio"></p>
+                </div>
+            </div>
 
             <div class="statsRow">
                 <div class="statBox">
                     <i class="bx bx-folder"></i>
                     <h3 id="repoCount">0</h3>
-                    <p>Repos</p>
+                    <p>Repositories</p>
                 </div>
                 <div class="statBox">
                     <i class="bx bx-group"></i>
@@ -54,19 +75,56 @@
                     <h3 id="activeDays">0</h3>
                     <p>Active Days</p>
                 </div>
+
             </div>
 
             <div class="infoList">
-                <p><i class="bx bx-map"></i> <span id="location">Not Available</span></p>
-                <p><i class="bx bx-buildings"></i> <span id="company">Not Available</span></p>
-                <p><i class="bx bx-link"></i> <a id="blogLink" href="#" target="_blank">Not Available</a></p>
-                <p><i class="bx bx-calendar"></i> Joined on <span id="joinDate"></span></p>
+                <p>
+                    <i class="bx bx-map"></i>
+                    <span id="location">Not Available</span>
+                </p>
+                <p>
+                    <i class="bx bx-buildings"></i>
+                    <span id="company">Not Available</span>
+                </p>
+                <p>
+                    <i class="bx bx-link"></i>
+                    <a id="blogLink" href="#" target="_blank">Not Available</a>
+                </p>
+                <p>
+                    <i class="bx bx-calendar"></i>
+                    Joined on
+                    <span id="joinDate"></span>
+                </p>
             </div>
+            <div class="section">
+                <h3 class="sectionTitle">Language Breakdown</h3>
+                <div id="languageSummary" class="languageSummary"></div>
+            </div>
+
+            <div class="repoHeader">
+                <h3 class="sectionTitle">Repositories</h3>
+                <select id="sortRepos">
+                    <option value="updated">
+                        Recently Updated
+                    </option>
+
+                    <option value="stars">
+                        Most Stars
+                    </option>
+
+                    <option value="name">
+                        Name A-Z
+                    </option>
+                </select>
+            </div>
+
+            <div id="repoContainer"></div>
 
             <a id="profileLink" href="#" target="_blank" class="btn">View on GitHub</a>
         </div>
     </div>
-
     <script src="script.js"></script>
+
 </body>
 </html>
